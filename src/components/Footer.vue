@@ -54,7 +54,10 @@ footer {
     margin: 0;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Oxygen', sans-serif;
-    text-align: center;
+    text-align: center;    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
 }
 
 .container {
@@ -96,7 +99,9 @@ p {
     font-family: 'Bebas Neue', cursive;
     font-family: 'Oxygen', sans-serif;
     text-align: center;
-    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 
