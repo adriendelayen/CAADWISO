@@ -1,92 +1,143 @@
 <template>
-    <nav >
-        <div class="container">
-            <div class="containerLogo">
-				<router-link :to="{name:'home'}"><img src="../assets/image/logo.png" alt="logo WebAgency" class="logo"></router-link>
+    <nav>
+        <div class="containerlogo">
+            <div>
+                <router-link :to="{name:'home'}"><img src="../assets/image/logo.png" alt="logo WebAgency" class="logo">
+                </router-link>
             </div>
-            <ul>
-                <li><router-link :to="{name:'home'}">Accueil</router-link></li>
-                <li><router-link :to="{name:'product'}">Produit</router-link></li>
-                <li><router-link :to="{name:'about'}">A propos</router-link></li>
-                <li><router-link :to="{name:'contact'}">Contact</router-link></li>
-            </ul>
         </div>
+        <img @click="dropin()" src="../assets/image/dropdownslim.png" alt="burger" class="burger">
+        <ul v-show="dropper" class="dropdown show">
+            <li class="dropitem">
+                <router-link :to="{name:'home'}">Accueil</router-link>
+            </li>
+            <li class="dropitem">
+                <router-link :to="{name:'product'}">Produit</router-link>
+            </li>
+            <li class="dropitem">
+                <router-link :to="{name:'about'}">A propos</router-link>
+            </li>
+            <li class="dropitem">
+                <router-link :to="{name:'contact'}">Contact</router-link>
+            </li>
+        </ul>
         <div class="containerPanier">
-			<router-link :to="{name:'basket'}"><font-awesome-icon icon="fa-solid fa-cart-shopping" />;;;;;</router-link>
-            
+            <router-link :to="{name:'basket'}">
+                <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+            </router-link>
         </div>
     </nav>
 </template>
 <script>
 export default {
-    name:'NavigationComponent'
-}
+    name: 'NavigationComponent',
+    data: function(){
+        return {
+        dropper: true,
+      }
+    },
+    methods: {
+      dropin() { this.dropper = !this.dropper},
+    }
+  }
+
+
 </script>
 
 <style scoped>
-
-@media(min-width: 769px) and (max-width: 1800px){
-    nav{
-        background-color: var(--grey);
-        height: 70px;
-        display: flex;
-        justify-content: space-between;
-        
-
-    }
-    .container{
+nav {
+    background-color: var(--grey);
+    height: 70px;
     display: flex;
+    justify-content: space-between;
+
 
 }
 
-ul{
+.logo {
+    padding: 10px;
+}
+
+.containerPanier {
+    width: 80px;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 3;
+}
+
+.panier {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 500;
+    color: var(--white);
+    font-size: 40px;
+}
+
+ul {
     list-style-type: none;
     display: flex;
     margin: 0;
-    padding:0;
+    padding: 0;
     height: 100%;
     justify-content: center;
-    gap:50px;
+    gap: 90px;
 }
 
-li{
+li {
     color: var(--white);
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
 
-.containerPanier{
-	width:80px;
-    background-color: var(--blue);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    
+a:link,
+a:visited,
+li {
+    color: var(--white);
+    font-size: 1.1rem;
+    text-decoration: none;
+
 }
 
-.logo{   
-    margin: 10px 50px 10px 20px;
+@media(max-width: 769px) {
+
+    .containerlogo {
+        justify-self: center;
+        order: 2;
+    }
+
+    .burger {
+        padding: 5px;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 70px;
+        height: 50px;
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+
+    .dropitem {
+        overflow: hidden;
+        background-color: var(--grey);
+        min-width: 160px;
+        box-shadow: var(--shadow);
+        padding: 12px 16px;
+    }
 }
 
-.panier{
-    font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 500;
-   color:var(--white);
-   font-size: 40px;
-}
+@media(min-width: 769px){
+    .burger {
+        display: none;
+    }
 
-a:link,a:visited, li{
-    color:var(--white);
-    font-size:1.1rem;
-    text-decoration:none;
-    
 }
-}
-    
-
 </style>

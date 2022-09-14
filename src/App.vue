@@ -1,10 +1,13 @@
 <template>
-<Navigation/>
 
-<main>
-  <router-view></router-view>
-</main>
-<Footer/>
+  <Navigation/>
+
+  <main>
+    <router-view></router-view>
+  </main>
+
+  <Footer/>
+
 </template>
 
 <script>

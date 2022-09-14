@@ -88,7 +88,7 @@ p {
     margin: 0;
 }
 
-@media(min-width: 769px) and (max-width: 1800px){
+@media(min-width: 769px){
   footer {
     background-color: var(--grey);
     color: var(--white);
