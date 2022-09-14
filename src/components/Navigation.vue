@@ -23,7 +23,7 @@
         </ul>
         <div class="containerPanier">
             <router-link :to="{name:'basket'}">
-                <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+                <font-awesome-icon icon="fa-solid fa-cart-shopping"/>
             </router-link>
         </div>
     </nav>

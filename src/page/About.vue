@@ -26,7 +26,7 @@
                         <li>Prénom: Adrien</li>
                         <li>Rôle: Testeur</li>
                         <li>Mail: adrien.delayen.job@gmail.com</li>
-                        <li><img id="linkedin" src="../assets/image/braBlue.png"/>www.linkedin.com/in/delayen/</li>
+                        <li><font-awesome-icon icon="fa-brands fa-linkedin"/>www.linkedin.com/in/delayen/</li>
                     </ul>
                 </div>
             </div>
