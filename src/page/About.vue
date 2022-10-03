@@ -1,7 +1,7 @@
 <template>
 
     <main>
-        <div class="container">
+        <div class="container1">
             <div class="divp">
                 <p>Le diamant de CAADWISO représente notre volonté à vous offrir la perfection dans un design pur et
                     élégant. L'esthétisme et la résistance de nos montres ont été étudié dans le détail pour vous faire
@@ -14,72 +14,18 @@
         </div>
 
 
-
-        <div class="container">
-            <div class="card">
+        <div class="container2">
+            <div class="card" v-for="c in cards" :key="c.id" :cards="c">
                 <div class="montre">
                     <img id="montre" src="../assets/image/montre.png"/>
                 </div>
-                <div class="profile">
-                    <ul>
-                        <li>Nom: DELAYEN</li>
-                        <li>Prénom: Adrien</li>
-                        <li>Rôle: Testeur</li>
-                        <li>Mail: adrien.delayen.job@gmail.com</li>
-                        <li><font-awesome-icon icon="fa-brands fa-linkedin"/>www.linkedin.com/in/delayen/</li>
+                    <ul class="profile">
+                        <li>Nom: {{c.nom}}</li>
+                        <li>Prénom: {{c.prenom}}</li>
+                        <li>Rôle: {{c.role}}</li>
+                        <li>Mail: {{c.mail}}</li>
+                        <li>{{c.linkedin}}</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="montre">
-                    <img id="montre" src="../assets/image/montre.png"/>
-                </div>
-                <div class="profile">
-                    <ul>
-                        <li>Nom: SEBBAH</li>
-                        <li>Prénom: Sofiane</li>
-                        <li>Rôle: Testeur</li>
-                        <li>Mail: m.sofiane.sebbah@gmail.com</li>
-                        <li><img id="linkedin" src="../assets/image/braBlue.png"/>www.linkedin.com/in/sofiane-sebbah</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="montre">
-                    <img id="montre" src="../assets/image/montre.png"/>
-                </div>
-                <div class="profile">
-                    <ul>
-                        <li>Nom: DELAYEN</li>
-                        <li>Prénom: Adrien</li>
-                        <li>Rôle: Testeur</li>
-                        <li>Mail: adrien.delayen.job@gmail.com</li>
-                        <li><img id="linkedin" src="../assets/image/braBlue.png"/>http:www.linkedin.com</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="montre">
-                    <img id="montre" src="../assets/image/montre.png"/>
-                </div>
-                <div class="profile">
-                    <ul>
-                        <li>Nom: DELAYEN</li>
-                        <li>Prénom: Adrien</li>
-                        <li>Rôle: Testeur</li>
-                        <li>Mail: adrien.delayen.job@gmail.com</li>
-                        <li><img id="linkedin" src="../assets/image/braBlue.png"/>http:www.linkedin.com</li>
-                    </ul>
-                </div>
             </div>
         </div>
 
@@ -90,24 +36,34 @@
     
 <script>
 export default {
-    name: 'AboutComponent'
+    name: 'AboutComponent',
+
+    data: function () {
+    return {
+        cards: [
+            { nom: "DELAYEN", prenom: "Adrien", role: "TBD", mail: "adrien.delayen.job@gmail.com", linkedin: "www.linkedin.com/in/delayen"},
+            { nom: "SEBBAH", prenom: "Sofiane", role: "TBD", mail: "m.sofiane.sebbah@gmail.com", linkedin: "www.linkedin.com/in/sofiane-sebbah"},
+            { nom: "QUASEVI", prenom: "Willy", role: "TBD", mail: "willy.quasevi@gmail.com", linkedin: "www.linkedin.com/in/willy-quasevi"},
+            { nom: "DUPREZ", prenom: "Camille", role: "TBD", mail: "duprez_camille@yahoo.com", linkedin: "www.linkedin.com/in/camille-duprez96"},
+        ]
+    };
+},
+
 }
 
 </script>
     
 <style scoped>
 
-/* Paragraphe + image des bureaux */
-
-    .container {
-        display: block;
-        font-size: 10px;
+    main {
+        margin: 5px 20px 2px 20px;
     }
 
-    div {
-        margin: 5px 20px 2px 20px;
-        justify-content: center;
-        align-items: center;
+/* Paragraphe + image des bureaux */
+
+    .container1 {
+        display: flex;
+        font-size: 10px;
     }
 
     .divp {
@@ -125,47 +81,52 @@ export default {
 
 
 /* Cards - smartphone view*/
+.container2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
 
-    .card{
-        display: flex;
-    }
+.card {
+    overflow: hidden;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
 
-    .montre{
-        width: 20%;
-    }
+#montre {
+    width: 100%;
+}
 
-    #montre{
-        width: 100px;
-    }
+.montre {
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: rgb(227,238,238);
+    background: linear-gradient(90deg, #F5F5F7 0%, #F5F5F7 50%, transparent 50%, transparent 100%);
+}
 
-    .profile{
-        width: 80%;
-        border: solid 1px black;
-        border-radius: 10px;
-    }
+.profile {
+    box-sizing: border-box;
+    height: fit-content;
+    list-style: none;
+    padding: none;
+    border: solid 1px black;
+    border-radius: 8px;
+    text-align: left;
+    padding: 10px 10px 10px 20%;
+    margin-left: -20%;
+    transform: translateX(-100%);
+    transition: .2s ease-in-out ;
+    background: white;
+}
 
-    li{
-        list-style-type: none;
-        text-align: left;
-    }
-
-    #linkedin{
-        width: 20px;
-        height: 20px;
-    }
+.card:hover .profile {
+    transform: translateX(0);
+}
 
 
 @media(min-width: 769px) {
-    .container {
-    display: flex;
-    font-size: 16px;
-    }
 
-    div {
-        margin: 5px 20px 2px 20px;
-        justify-content: center;
-        align-items: center;
-    }
 
     .divp {
         width: 50%;
@@ -179,35 +140,11 @@ export default {
         width: 100%;
     }
 
-
-    /* Cards - laptop view */
-    .card{
-        display: flex;
-        border: solid 1px black;
-        border-radius: 10px;
+    .container2 {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .montre{
-        width: 20%;
-        border: solid 1px black;
-        border-radius: 10px;
-    }
+} 
 
-    .profile{
-        width: 80%;
-        border: solid 1px black;
-        border-radius: 10px;
-    }
 
-    li{
-        list-style-type: none;
-        text-align: left;
-    }
-
-    #linkedin{
-        width: 20px;
-        height: 20px;
-    }
-
-}
 </style>
