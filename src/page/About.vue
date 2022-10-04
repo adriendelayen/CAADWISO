@@ -1,6 +1,7 @@
 <template>
 
     <main>
+        <h2>La société CAADWISO</h2>
         <div class="container1">
             <div class="divp">
                 <p>Le diamant de CAADWISO représente notre volonté à vous offrir la perfection dans un design pur et
@@ -13,6 +14,7 @@
             </div>
         </div>
 
+        <h2>Nos collaborateurs</h2>
 
         <div class="container2">
             <div class="card" v-for="c in cards" :key="c.id" :cards="c">
@@ -23,7 +25,8 @@
                         <li>Nom: {{c.nom}}</li>
                         <li>Prénom: {{c.prenom}}</li>
                         <li>Rôle: {{c.role}}</li>
-                        <li>Mail: {{c.mail}}</li>
+                        <hr>
+                        <li>{{c.mail}}</li>
                         <li>{{c.linkedin}}</li>
                     </ul>
             </div>
@@ -59,15 +62,22 @@ export default {
         margin: 5px 20px 2px 20px;
     }
 
+    h2{
+        color: var(--blue);
+        font-weight: bold;
+        font-size: 32px;
+    }
+
 /* Paragraphe + image des bureaux */
 
     .container1 {
-        display: flex;
+        display: block;
         font-size: 10px;
     }
 
     .divp {
         width: auto;
+        font-size: 15px;
     }
 
     .divimg {
@@ -115,7 +125,7 @@ export default {
     text-align: left;
     padding: 10px 10px 10px 20%;
     margin-left: -20%;
-    transform: translateX(-100%);
+    transform: translateX(-150%);
     transition: .2s ease-in-out ;
     background: white;
 }
@@ -125,11 +135,20 @@ export default {
 }
 
 
+/* Cards - laptop view*/
+
 @media(min-width: 769px) {
 
+    .container1{
+        display: flex;
+    }
 
     .divp {
+        display: flex;
         width: 50%;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
     }
 
     .divimg {
@@ -145,6 +164,5 @@ export default {
     }
 
 } 
-
 
 </style>
