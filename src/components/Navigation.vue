@@ -38,6 +38,14 @@ export default {
     },
     methods: {
       dropin() { this.dropper = !this.dropper},
+      handleResize(){window.addEventListener('resize', ()=>{
+        if (window.innerWidth >=769) {
+            this.dropper = true
+        }
+    })}
+    },
+    mounted() { this.handleResize()
+    
     }
   }
 
@@ -126,7 +134,7 @@ li {
     }
 
     .dropitem {
-        overflow: hidden;
+        z-index: 2000;
         background-color: var(--grey);
         min-width: 160px;
         box-shadow: var(--shadow);
