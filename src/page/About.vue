@@ -19,15 +19,15 @@
         <div class="container2">
             <div class="card" v-for="c in cards" :key="c.id" :cards="c">
                 <div class="montre">
-                    <img id="montre" src="../assets/image/montre.png"/>
+                    <img :src="c.img"/>
                 </div>
                     <ul class="profile">
                         <li>Nom: {{c.nom}}</li>
                         <li>Prénom: {{c.prenom}}</li>
                         <li>Rôle: {{c.role}}</li>
                         <hr>
-                        <li>{{c.mail}}</li>
-                        <li>{{c.linkedin}}</li>
+                        <button><a :href=c.url>me contacter</a></button>
+                        <button><a :href=c.linkedin>mon linkedin</a></button>
                     </ul>
             </div>
         </div>
@@ -44,10 +44,40 @@ export default {
     data: function () {
     return {
         cards: [
-            { nom: "DELAYEN", prenom: "Adrien", role: "TBD", mail: "adrien.delayen.job@gmail.com", linkedin: "www.linkedin.com/in/delayen"},
-            { nom: "SEBBAH", prenom: "Sofiane", role: "TBD", mail: "m.sofiane.sebbah@gmail.com", linkedin: "www.linkedin.com/in/sofiane-sebbah"},
-            { nom: "QUASEVI", prenom: "Willy", role: "TBD", mail: "willy.quasevi@gmail.com", linkedin: "www.linkedin.com/in/willy-quasevi"},
-            { nom: "DUPREZ", prenom: "Camille", role: "TBD", mail: "duprez_camille@yahoo.com", linkedin: "www.linkedin.com/in/camille-duprez96"},
+            {   nom: "DELAYEN",
+                prenom: "Adrien",
+                role: "TBD",
+                mail: "adrien.delayen.job@gmail.com",  
+                linkedin: "https://www.linkedin.com/in/delayen",
+                url:"mailto:adrien.delayen.job@gmail.com?subject=contact",   
+                img: require ("../assets/image/bitmojiAdrien.png"
+            )},
+            { 
+                nom: "SEBBAH",
+                prenom: "Sofiane",
+                role: "TBD",
+                mail: "m.sofiane.sebbah@gmail.com",
+                linkedin: "https://www.linkedin.com/in/sofiane-sebbah",
+                url:"mailto:m.sofiane.sebbah@gmail.com?subject=contact",
+                img: require ("../assets/image/bitmojiSoso.png")
+            },
+            { 
+                nom: "QUASEVI", 
+                prenom: "Willy", 
+                role: "TBD", 
+                mail: "willy.quasevi@gmail.com", 
+                url:"mailto:willy.quasevi@gmail.com?subject=contact",
+                linkedin: "https://www.linkedin.com/in/willy-quasevi", 
+                img: require ("../assets/image/WillBitmojmontre.png")
+            },
+            { 
+                nom: "DUPREZ", 
+                prenom: "Camille", 
+                role: "TBD", 
+                mail: "duprez_camille@yahoo.com",
+                url:"mailto:duprez_camille@gmail.com?subject=contact",
+                linkedin: "https://www.linkedin.com/in/camille-duprez96", 
+                img: require ("../assets/image/CamilleMontre.png")},
         ]
     };
 },
@@ -77,8 +107,12 @@ export default {
 
     .divp {
         width: auto;
-        font-size: 15px;
+        font-size: 20px;
     }
+
+    
+    img{
+    width: 100%;}
 
     .divimg {
         width: auto;
@@ -103,9 +137,6 @@ export default {
     grid-template-columns: 30% 70%;
 }
 
-#montre {
-    width: 100%;
-}
 
 .montre {
     overflow: hidden;
@@ -113,6 +144,7 @@ export default {
     z-index: 2;
     background: rgb(227,238,238);
     background: linear-gradient(90deg, #F5F5F7 0%, #F5F5F7 50%, transparent 50%, transparent 100%);
+    
 }
 
 .profile {
@@ -128,6 +160,10 @@ export default {
     transform: translateX(-150%);
     transition: .2s ease-in-out ;
     background: white;
+}
+
+button{
+    margin-right: 15px;
 }
 
 .card:hover .profile {
@@ -163,6 +199,36 @@ export default {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    button a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        font-family: 'Bebas Neue', cursive;
+        font-family: 'Oxygen', sans-serif;
+    }
+
+    button{
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--blue);
+    height: 40px;
+    width: 130px;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    }
+
+    button:hover{
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--blue);
+    height: 40px;
+    width: 130px;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    }
+    
 } 
 
 </style>
