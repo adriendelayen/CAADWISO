@@ -97,13 +97,14 @@ nav {
         top: 70px;
         height: 50px;
         display: none;
+        z-index: 1000;
     }
     .show{
         display: initial;
     }
 
     .dropitem {
-        z-index: 2;
+        
         background-color: var(--grey);
         min-width: 160px;
         box-shadow: var(--shadow);
