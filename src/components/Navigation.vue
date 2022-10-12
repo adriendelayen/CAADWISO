@@ -7,7 +7,7 @@
             </div>
         </div>
         <img @click="dropin()" src="../assets/image/dropdownslim.png" alt="burger" class="burger">
-        <ul v-show="dropper" class="dropdown show">
+        <ul v-show="dropper" class="dropdown" ref="navigation">
             <li class="dropitem">
                 <router-link :to="{name:'home'}">Accueil</router-link>
             </li>
@@ -36,18 +36,15 @@ export default {
         dropper: true,
       }
     },
-    methods: {
-      dropin() { this.dropper = !this.dropper},
-      handleResize(){window.addEventListener('resize', ()=>{
-        if (window.innerWidth >=769) {
-            this.dropper = true
-        }
-    })}
-    },
-    mounted() { this.handleResize()
+   methods: {
+     dropin() { 
+        this.$refs.navigation.classList.toggle('show');
+     }
+   }
+ 
     
-    }
   }
+ 
 
 
 </script>
@@ -72,7 +69,6 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    order: 3;
 }
 
 .panier {
@@ -85,42 +81,15 @@ nav {
     font-size: 40px;
 }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    justify-content: center;
-    gap: 90px;
-}
 
-li {
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-a:link,
-a:visited,
-li {
-    color: var(--white);
-    font-size: 1.1rem;
-    text-decoration: none;
-
-}
-
-@media(max-width: 769px) {
 
     .containerlogo {
         justify-self: center;
-        order: 2;
     }
 
     .burger {
         padding: 5px;
+        order: -1;
     }
 
     .dropdown {
@@ -130,22 +99,61 @@ li {
         display: none;
     }
     .show{
-        display: block;
+        display: initial;
     }
 
     .dropitem {
-        z-index: 2000;
+        z-index: 2;
         background-color: var(--grey);
         min-width: 160px;
         box-shadow: var(--shadow);
         padding: 12px 16px;
     }
-}
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        color: var(--white);
+        height: 100%;
+    }
+
+    a:link,
+    a:visited,
+    li {
+        color: var(--white);
+        font-size: 1.1rem;
+        text-decoration: none;
+    }
+
 
 @media(min-width: 769px){
     .burger {
         display: none;
+        order: 0;
+    }
+    ul {    
+        gap: 0;
     }
 
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .dropdown {
+        position: static;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        height: auto;
+    }
+
+    .dropitem {
+        padding: 0;
+    }
 }
 </style>
