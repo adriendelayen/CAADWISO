@@ -54,7 +54,7 @@
       </p>
     </form>
     <div class="image">
-      <img src="../assets/image/flex-office.png" alt="service-client">
+      <img src="/image/flex-office.png" alt="service-client">
     </div>
     </div>
   

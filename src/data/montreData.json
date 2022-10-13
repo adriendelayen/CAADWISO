@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "couleur": "bleu",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra1.png",
+    "prix": "49€",
+    "pasti": "#334255"
+  },
+  {
+    "id": 2,
+    "couleur": "Cien",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra9.png",
+    "prix": "49€",
+    "pasti": "#bbcab7"
+  },
+  {
+    "id": 3,
+    "couleur": "Gris",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra4.png",
+    "prix": "49€",
+    "pasti": "#5d6d62"
+  },
+  {
+    "id": 4,
+    "couleur": "Rose",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra6.png",
+    "prix": "49€",
+    "pasti": "#e8cac8"
+  },
+  {
+    "id": 5,
+    "couleur": "Rouge",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra7.png",
+    "prix": "49€",
+    "pasti": "#e35040"
+  },
+  {
+    "id": 6,
+    "couleur": "blanc",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra9.png",
+    "prix": "49€",
+    "pasti": "#dddcda"
+  },
+  {
+    "id": 7,
+    "couleur": "jaune",
+    "tailleBracelet": "20cm",
+    "tailleCadran": "36mm",
+    "matiere": "silicone",
+    "image": "/image/Bra5.png",
+    "prix": "49€",
+    "pasti": "#e7cd5f"
+  }
+]

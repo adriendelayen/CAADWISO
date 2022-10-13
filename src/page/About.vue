@@ -10,7 +10,7 @@
                     qualité et l'originalité.</p>
             </div>
             <div class="divimg">
-                <img id="officeimg" src="../assets/image/office.png" alt="image bureaux entreprise" />
+                <img id="officeimg" src="/image/office.png" alt="image bureaux entreprise" />
             </div>
         </div>
 
@@ -50,8 +50,8 @@ export default {
                 mail: "adrien.delayen.job@gmail.com",  
                 linkedin: "https://www.linkedin.com/in/delayen",
                 url:"mailto:adrien.delayen.job@gmail.com?subject=contact",   
-                img: require ("../assets/image/bitmojiAdrien.png"
-            )},
+                img: "/image/bitmojiAdrien.png"
+            },
             { 
                 nom: "SEBBAH",
                 prenom: "Sofiane",
@@ -59,7 +59,7 @@ export default {
                 mail: "m.sofiane.sebbah@gmail.com",
                 linkedin: "https://www.linkedin.com/in/sofiane-sebbah",
                 url:"mailto:m.sofiane.sebbah@gmail.com?subject=contact",
-                img: require ("../assets/image/bitmojiSoso.png")
+                img: "/image/bitmojiSoso.png"
             },
             { 
                 nom: "QUASEVI", 
@@ -68,7 +68,7 @@ export default {
                 mail: "willy.quasevi@gmail.com", 
                 url:"mailto:willy.quasevi@gmail.com?subject=contact",
                 linkedin: "https://www.linkedin.com/in/willy-quasevi", 
-                img: require ("../assets/image/WillBitmojmontre.png")
+                img: "/image/WillBitmojmontre.png"
             },
             { 
                 nom: "DUPREZ", 
@@ -77,7 +77,8 @@ export default {
                 mail: "duprez_camille@yahoo.com",
                 url:"mailto:duprez_camille@gmail.com?subject=contact",
                 linkedin: "https://www.linkedin.com/in/camille-duprez96", 
-                img: require ("../assets/image/CamilleMontre.png")},
+                img: "/image/CamilleMontre.png"
+            }
         ]
     };
 },
