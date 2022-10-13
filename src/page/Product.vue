@@ -1,262 +1,193 @@
 <template>
-    <main>
-      <div>
-        <h1>Produit</h1>
-        <div class="positionSwiper">
-          <swiper :slides-per-view="1" centeredSlides:true :spaceBetween="10" :pagination="{ clickable: true }"
-            :scrollbar="{ draggable: true }" :loop="true" :breakpoints="{
-              '320': {
-                slidesPerView: 1,
-              },
-              '570': {
-                slidesPerView: 1,
-              },
-              '768': {
-                slidesPerView: 1,
-              },
-  
-              '992': {
-                slidesPerView: 1,
-                spaceBetween: 5,
-              },
-              '1024': {
-                slidesPerView: 1,
-              },
-              '1200': {
-                slidesPerView: 1,
-              },
-            }" :modules="modules" class="mySwiper">
-            <swiper-slide v-for="m in montres" :key="m.id">
-              <Montre class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
-            </swiper-slide>
-  
-            <span class="imgCadran">
-              <h3>cadran</h3>
-              <img src="../assets/image/cadran.png" />
-            </span>
-          </swiper>
-        </div>
-  
-  
-  
-        <h2>Choisissez la couleur de votre bracelet :</h2>
-  
-        <!--
-        <div class="alignPastilleCouleur">
-          <div class="pastillas" :class="{ selectedPastillas: p.id === selectedPastillas}" 
-            :style="p"
-            v-for="p in pastille"
-            :key="p.id"
-            @click="selected(p.id)"
-            ></div>
-        </div>
-     -->
-  
-     <div class="alignPastilleCouleur">
-  
-     </div>
+  <main>
+    <div>
+      <h1 class="titreProduit">Produit</h1>
+      <div class="positionSwiper">
+        <swiper ref="mySwiper" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" class="mySwiper"
+          :slides-per-view="1" :spaceBetween="10" :loop="true" :breakpoints="{
+            '320': {
+              slidesPerView: 1,
+            },
+            '570': {
+              slidesPerView: 1,
+            },
+            '768': {
+              slidesPerView: 1,
+            },
+
+            '992': {
+              slidesPerView: 1,
+            },
+            '1024': {
+              slidesPerView: 1,
+            },
+            '1200': {
+              slidesPerView: 3,
+            },
+          }">
+          <swiper-slide v-for="m in montres" :key="m.id">
+            <Montre class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
+          </swiper-slide>
+
+          <span class="imgCadran">
+            <img src="/image/cadran.png" />
+          </span>
+        </swiper>
       </div>
-      <h2>Modèle du bracelet: Yellow Pastel</h2>
-    </main>
-  </template>
-  
-  <script>
-  import Montre from "@/components/Montre.vue";
-  import { Navigation, Pagination, Scrollbar } from "swiper";
-  import { Swiper, SwiperSlide } from "swiper/vue";
-  
-  // Import Swiper styles
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-  import "swiper/css/scrollbar";
-  export default {
-    name: "ProductComponent",
-    components: { Montre, Swiper, SwiperSlide },
-    data: function () {
-      return {
-        selectedPastillas: undefined,
-        selected: undefined,
-        pastille: [
-          {
-            id: 1,
-            backgroundColor: "#334255"
-          },
-          {
-            id: 2,
-            backgroundColor: "#bbcab7"
-          },
-          {
-            id: 3,
-            backgroundColor: "#5d6d62"
-          },
-          {
-            id: 4,
-            backgroundColor: "#e8cac8"
-          },
-  
-          {
-            id: 5,
-            backgroundColor: "#e35040"
-          },
-          {
-            id: 6,
-            backgroundColor: "#dddcda"
-          },
-          {
-            id: 7,
-            backgroundColor: "#e7cd5f"
-          }
-        ],
-        montres: [
-          {
-            id: 0,
-            couleur: "bleu",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra1.png"),
-            prix: "49€",
-          },
-          {
-            id: 1,
-            couleur: "Cien",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra9.png"),
-            prix: "49€",
-          },
-          {
-            id: 2,
-            couleur: "Gris",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra4.png"),
-            prix: "49€",
-          },
-          {
-            id: 3,
-            couleur: "Rose",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra6.png"),
-            prix: "49€",
-          },
-          {
-            id: 4,
-            couleur: "Rouge",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra7.png"),
-            prix: "49€",
-          },
-          {
-            id: 5,
-            couleur: "blanc",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("../assets/image/Bra9.png"),
-            prix: "49€",
-          },
-          {
-            id: 6,
-            couleur: "jaune",
-            tailleBracelet: "20cm",
-            tailleCadran: "36mm",
-            matiere: "silicone",
-            image: require("/src/assets/image/Bra5.png"),
-            prix: "49€",
-          },
-        ],
-        setup() {
-          const onSwiper = (swiper) => {
-            console.log(swiper);
-          };
-          const onSlideChange = () => {
-            console.log("slide change");
-          };
-          return {
-            onSwiper,
-            onSlideChange,
-            modules: [Navigation, Pagination, Scrollbar],
-          };
-        },
-      };
+
+      <h2 class="choixBracelet">Choisissez la couleur de votre bracelet :</h2>
+
+      <!--
+      <div class="alignPastilleCouleur">
+        <div class="pastillas" :class="{ selectedPastillas: p.id === selectedPastillas}" 
+          :style="p"
+          v-for="p in pastille"
+          :key="p.id"
+          @click="selected(p.id)"
+          ></div>
+      </div>
+      -->
+    </div>
+    <div>
+      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true"
+        :watchSlidesProgress="true" :modules="modules" class="swiperPastille">
+        <swiper-slide class="alignPastilleCouleur" v-for="(element, position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
+          <div class="pastillas" :style="{ backgroundColor: element.pasti }"></div>
+        </swiper-slide>
+      </swiper>
+    </div>
+
+    <h2>Caractèristique du bracelet: Yellow Pastel</h2>
+  </main>
+</template>
+
+<script>
+import Montre from "@/components/Montre.vue";
+import { Navigation, Pagination, Scrollbar, FreeMode, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode";
+
+import SwiperCore from "swiper/core";
+SwiperCore.use([Navigation, Thumbs]);
+
+
+export default {
+  name: "ProductComponent",
+  components: { Montre, Swiper, SwiperSlide },
+  // mounted () {
+  //   window.$s = this.$refs.mySwiper
+  //   console.log ('on mounted > !' , this.$refs.mySwiper.swiper)
+  // },
+  data () {
+    return {
+      selectedPastillas: undefined,
+      selected: undefined,
+      montres:  require('../data/montreData.json'),
+    };
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log("slide change");
+    };
+
+    return {
+      onSwiper,
+      onSlideChange,
+      modules: [Navigation, Pagination, Scrollbar, FreeMode, Thumbs],
+    };
+  },
+  methods: {
+    setThumbsSwiper(position) {
+      console.log('jai lance la commande pour changer le slider', position)
+      this.$refs.mySwiper.$el.swiper.slideToLoop(position, 2000)
+      //this.thumbsSwiper = swiper;
+      //console.log(this.thumbsSwiper);
     },
-  
-    methods: {
-  
-      AddMOntre(montre) {
-        this.montres.push(montre);
-      },
-      computed:{
-        sameId(){}
-      }
+    AddMOntre(montre) {
+      this.montres.push(montre);
     },
-  };
-  </script>
-  
-  <style scoped>
-  /*
-  .grid {
-    display: flex;
-    justify-content: space-evenly;
-    width: 80%;
-    margin: 50px auto;
-  
-  }
-  */
-  .imgCadran img {
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 2;
-    top: 0%
-  }
-  
-  .alignPastilleCouleur {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  ul {
-    list-style: none;
-    text-decoration: none;
-  }
-  
-  .pastillas {
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.75)
-  }
-  
-  .positionSwiper {
-    align-items: center;
-  }
-  
-  .swiper-slide {
-    align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-  
-  }
-  </style>
+    /* const slideData = computed(() => ({
+      isActive: slideClasses.value.indexOf('swiper-slide-active') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-active') >= 0,
+      isVisible: slideClasses.value.indexOf('swiper-slide-visible') >= 0,
+      isDuplicate: slideClasses.value.indexOf('swiper-slide-duplicate') >= 0,
+      isPrev: slideClasses.value.indexOf('swiper-slide-prev') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-prev') >= 0,
+      isNext: slideClasses.value.indexOf('swiper-slide-next') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-next') >= 0
+    })); */
+  },
+};
+</script>
+
+<style scoped>
+/*
+.grid {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 50px auto;
+
+}
+*/
+.imgCadran img {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+  top: 0%;
+}
+
+.alignPastilleCouleur {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0 30px 0;
+}
+
+ul {
+  list-style: none;
+  text-decoration: none;
+}
+
+.pastillas {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.75);
+}
+
+.positionSwiper {
+  align-items: center;
+}
+
+.swiper-slide {
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+}
+
+h1,
+h2 {
+  margin-left: 45px;
+}
+</style>

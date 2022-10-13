@@ -2,11 +2,11 @@
     <nav>
         <div class="containerlogo">
             <div>
-                <router-link :to="{name:'home'}"><img src="../assets/image/logo.png" alt="logo WebAgency" class="logo">
+                <router-link :to="{name:'home'}"><img src="/image/logo.png" alt="logo WebAgency" class="logo">
                 </router-link>
             </div>
         </div>
-        <img @click="dropin()" src="../assets/image/dropdownslim.png" alt="burger" class="burger">
+        <img @click="dropin()" src="/image/dropdownslim.png" alt="burger" class="burger">
         <ul v-show="dropper" class="dropdown" ref="navigation">
             <li class="dropitem">
                 <router-link :to="{name:'home'}">Accueil</router-link>

@@ -7,8 +7,8 @@
             </p>
             <button><router-link :to="{name:'product'}">En savoir plus</router-link></button>
         </div>
-        <img class="mobi" src="../assets/image/imghomepagesmart.png" alt="montre Accueil">
-        <img class="pc" src="../assets/image/imghomepage.png" alt="montre Accueil">
+        <img class="mobi" src="/image/imghomepagesmart.png" alt="montre Accueil">
+        <img class="pc" src="/image/imghomepage.png" alt="montre Accueil">
         
     </main>
     </template>
