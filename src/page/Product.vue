@@ -4,7 +4,7 @@
       <h1 class="titreProduit">Produit</h1>
       <div class="positionSwiper">
         <swiper ref="mySwiper" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" class="mySwiper"
-          :slides-per-view="1" :spaceBetween="10" :loop="true" :breakpoints="{
+           :loop="true" :breakpoints="{
             '320': {
               slidesPerView: 1,
             },
@@ -22,7 +22,7 @@
               slidesPerView: 1,
             },
             '1200': {
-              slidesPerView: 3,
+              slidesPerView: 1,
             },
           }">
           <swiper-slide v-for="m in montres" :key="m.id">
@@ -49,9 +49,9 @@
       -->
     </div>
     <div>
-      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true"
+      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true" 
         :watchSlidesProgress="true" :modules="modules" class="swiperPastille">
-        <swiper-slide class="alignPastilleCouleur" v-for="(element, position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
+        <swiper-slide class="alignPastilleCouleur" v-for="(element , position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
           <div class="pastillas" :style="{ backgroundColor: element.pasti }"></div>
         </swiper-slide>
       </swiper>
@@ -107,22 +107,20 @@ export default {
     };
   },
   methods: {
-    setThumbsSwiper(position) {
-      console.log('jai lance la commande pour changer le slider', position)
-      this.$refs.mySwiper.$el.swiper.slideToLoop(position, 2000)
+    setThumbsSwiper(element) {
+      console.log('jai lance la commande pour changer le slider', element);
+      this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
+      if(this.breakpoints.slidesPerView > 1) {
+        element+1
+        console.log('if breakpoint');
+      }
+     
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
     AddMOntre(montre) {
       this.montres.push(montre);
     },
-    /* const slideData = computed(() => ({
-      isActive: slideClasses.value.indexOf('swiper-slide-active') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-active') >= 0,
-      isVisible: slideClasses.value.indexOf('swiper-slide-visible') >= 0,
-      isDuplicate: slideClasses.value.indexOf('swiper-slide-duplicate') >= 0,
-      isPrev: slideClasses.value.indexOf('swiper-slide-prev') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-prev') >= 0,
-      isNext: slideClasses.value.indexOf('swiper-slide-next') >= 0 || slideClasses.value.indexOf('swiper-slide-duplicate-next') >= 0
-    })); */
   },
 };
 </script>
@@ -137,17 +135,24 @@ export default {
 
 }
 */
-.imgCadran img {
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  position: absolute;
-  z-index: 2;
-  top: 0%;
+.imgCadran  {
+ width:100%;
+ height:100%;
 }
 
+img { 
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    width:500px;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 10px;
+    right: auto;
+    z-index: 300;
+}
 .alignPastilleCouleur {
   display: flex;
   justify-content: space-evenly;
