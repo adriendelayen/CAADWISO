@@ -39,7 +39,7 @@
 
       <!--
       <div class="alignPastilleCouleur">
-        <div class="pastillas" :class="{ selectedPastillas: p.id === selectedPastillas}" 
+        <div class="pastillas" :class="{ selectedPastillas: p.id === selectedPastillas}"
           :style="p"
           v-for="p in pastille"
           :key="p.id"
@@ -49,7 +49,7 @@
       -->
     </div>
     <div>
-      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true" 
+      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true"
         :watchSlidesProgress="true" :modules="modules" class="swiperPastille">
         <swiper-slide class="alignPastilleCouleur" v-for="(element , position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
           <div class="pastillas" :style="{ backgroundColor: element.pasti }"></div>
@@ -114,7 +114,7 @@ export default {
         element+1
         console.log('if breakpoint');
       }
-     
+
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
@@ -140,19 +140,16 @@ export default {
  height:100%;
 }
 
-img { 
+img {
   position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 200;
     width:500px;
+    pointer-events: none;
 }
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 10px;
-    right: auto;
-    z-index: 300;
-}
+
 .alignPastilleCouleur {
   display: flex;
   justify-content: space-evenly;
