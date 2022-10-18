@@ -68,11 +68,7 @@
     "image": "/image/Bra5.png",
     "prix": "49€",
     "pasti": "#e7cd5f"
-  },
-  {
-   "option":[
-    {"optionTailleBracelet": "25cm", "optionTailleCadran":"41mm","optionPrix":""}
-  ]
   }
+
 
 ]

@@ -4,7 +4,8 @@
       <h1 class="titreProduit">Produit</h1>
       <div class="positionSwiper">
         <swiper ref="mySwiper" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" class="mySwiper"
-           :loop="true" :breakpoints="{
+           :loop="true"
+           :breakpoints="{
             '320': {
               slidesPerView: 1,
             },
@@ -110,11 +111,6 @@ export default {
     setThumbsSwiper(element) {
       console.log('jai lance la commande pour changer le slider', element);
       this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
-      if(this.breakpoints.slidesPerView > 1) {
-        element+1
-        console.log('if breakpoint');
-      }
-
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
@@ -147,7 +143,7 @@ img {
     transform: translate(-50%, -50%);
     z-index: 200;
     width:500px;
-    pointer-events:none;
+    pointer-events: none;
 }
 
 .alignPastilleCouleur {
