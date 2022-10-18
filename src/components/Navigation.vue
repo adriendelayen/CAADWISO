@@ -28,7 +28,7 @@
             
         </div>
     </nav>
-    <i class="fa-thin fa-pen"></i>
+    
 </template>
 <script>
 export default {
