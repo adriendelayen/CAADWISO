@@ -147,7 +147,7 @@ img {
     transform: translate(-50%, -50%);
     z-index: 200;
     width:500px;
-    pointer-events: none;
+    pointer-events:none;
 }
 
 .alignPastilleCouleur {
