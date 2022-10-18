@@ -135,6 +135,8 @@ export default {
 
 }
 */
+
+
 .imgCadran  {
  width:100%;
  height:100%;
@@ -195,6 +197,6 @@ ul {
 h1,
 h2 {
   margin-left: 45px;
-  color:white;
+  
 }
 </style>
