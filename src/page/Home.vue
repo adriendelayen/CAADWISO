@@ -1,12 +1,16 @@
 <template>
 
     <main>
-        <div>
-            <h1>La perfection en main.</h1>
+        <div >
+            <h1 class="typer">La perfection en main.</h1>
             <p>Passionné de sensations fortes ? La CAADWISO est faite pour vous, 48 heures d'autonomie et résistante aux chocs, elle vous accompagnera dans toutes vos aventures, alors ne perdez pas une minute :
             </p>
             <button><router-link :to="{name:'product'}">En savoir plus</router-link></button>
         </div>
+
+        
+
+
         <img class="mobi" src="/image/imghomepagesmart.png" alt="montre Accueil">
         <img class="pc" src="/image/imghomepage.png" alt="montre Accueil">
         
@@ -21,6 +25,27 @@
         </script>
         
         <style scoped>
+
+
+
+            .typer{
+                border-right: 2px solid var(--blue);
+                animation: typer-animation 2s steps(22),blink-animation .5s step-end infinite alternate;
+                width: 90%;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            @keyframes typer-animation{
+                from{
+                    width:0;
+                }
+            }
+            @keyframes blink-animation{
+                50%{
+                    border-color: transparent
+                }}
+
+
             main{
                 min-height: fit-content;
             }
@@ -82,6 +107,9 @@
                 main{
                     min-height: 73vh;
                     flex-direction: row;
+                }
+                .typer{
+                    width: 65%;
                 }
                 
             }
