@@ -21,6 +21,9 @@
         </script>
         
         <style scoped>
+            main{
+                min-height: fit-content;
+            }
             div{
                 margin-left: 20px;
                 padding-right: 50px;
@@ -44,11 +47,11 @@
             }
             .mobi {
                 padding-top: 5px;
-                width: 50%;
-                position: absolute;
-                bottom: 220px; 
+                width: 70%;
+              
             }
             .pc {
+                align-self:flex-end;
                 width: 50%;
             }
             button {
@@ -77,6 +80,7 @@
                     display: none;
                 }
                 main{
+                    min-height: 73vh;
                     flex-direction: row;
                 }
                 

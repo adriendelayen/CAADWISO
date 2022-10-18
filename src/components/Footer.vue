@@ -49,12 +49,13 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxygen:wght@300&display=swap");
 
 footer {
+ 
     background-color: var(--grey);
     color: var(--white);
     margin: 0;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Oxygen', sans-serif;
-    text-align: center;    position: absolute;
+    text-align: center;
     width: 100%;
     height: fit-content;
 }
@@ -91,14 +92,17 @@ p {
 }
 
 @media(min-width: 769px){
+  
+   
+  
   footer {
+    
     background-color: var(--grey);
     color: var(--white);
     margin: 0;
     font-family: 'Bebas Neue', cursive;
     font-family: 'Oxygen', sans-serif;
     text-align: center;
-    position: absolute;
     width: 100%;
 }
 
