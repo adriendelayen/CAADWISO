@@ -163,13 +163,28 @@ export default {
     background: white;
 }
 
-button{
-    margin-right: 15px;
-}
-
 .card:hover .profile {
     transform: translateX(0);
 }
+
+button a {
+        text-decoration: none;
+        color: white;
+        font-size: 11px;
+        font-family: 'Bebas Neue', cursive;
+        font-family: 'Oxygen', sans-serif;
+    }
+
+    button{
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--blue);
+    height: 20px;
+    width: 100px;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    }
 
 
 /* Cards - laptop view*/
