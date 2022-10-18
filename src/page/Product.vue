@@ -3,9 +3,14 @@
     <div>
       <h1 class="titreProduit">Produit</h1>
       <div class="positionSwiper">
-        <swiper ref="mySwiper" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" class="mySwiper"
-           :loop="true"
-           :breakpoints="{
+        <swiper
+          ref="mySwiper"
+          :navigation="true"
+          :thumbs="{ swiper: thumbsSwiper }"
+          :modules="modules"
+          class="mySwiper"
+          :loop="true"
+          :breakpoints="{
             '320': {
               slidesPerView: 1,
             },
@@ -25,7 +30,8 @@
             '1200': {
               slidesPerView: 1,
             },
-          }">
+          }"
+        >
           <swiper-slide v-for="m in montres" :key="m.id">
             <Montre class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
           </swiper-slide>
@@ -50,15 +56,32 @@
       -->
     </div>
     <div>
-      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true"
-        :watchSlidesProgress="true" :modules="modules" class="swiperPastille">
-        <swiper-slide class="alignPastilleCouleur" v-for="(element , position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
-          <div class="pastillas" :style="{ backgroundColor: element.pasti }"></div>
+      <swiper
+        :spaceBetween="3"
+        :slidesPerView="7"
+        :freeMode="true"
+        :watchSlidesProgress="true"
+        :modules="modules"
+        class="swiperPastille"
+      >
+        <swiper-slide
+          class="alignPastilleCouleur"
+          v-for="(element, position) in montres"
+          @click="setThumbsSwiper(position)"
+          :key="element.id"
+        >
+          <div
+            class="pastillas"
+            :style="{ backgroundColor: element.pasti }"
+          ></div>
         </swiper-slide>
       </swiper>
     </div>
 
-    <h2>Caractèristique du bracelet: Yellow Pastel</h2>
+    <h2 v-if="this.selectedItem">
+      Caractèristique du bracelet:
+      <span :style="{ color: this.selectedItem.pasti }">Yellow Pastel</span>
+    </h2>
   </main>
 </template>
 
@@ -78,7 +101,6 @@ import "swiper/css/free-mode";
 import SwiperCore from "swiper/core";
 SwiperCore.use([Navigation, Thumbs]);
 
-
 export default {
   name: "ProductComponent",
   components: { Montre, Swiper, SwiperSlide },
@@ -86,11 +108,12 @@ export default {
   //   window.$s = this.$refs.mySwiper
   //   console.log ('on mounted > !' , this.$refs.mySwiper.swiper)
   // },
-  data () {
+  data() {
     return {
       selectedPastillas: undefined,
       selected: undefined,
-      montres:  require('../data/montreData.json'),
+      montres: require("../data/montreData.json"),
+      selectedItem: undefined,
     };
   },
   setup() {
@@ -109,8 +132,9 @@ export default {
   },
   methods: {
     setThumbsSwiper(element) {
-      console.log('jai lance la commande pour changer le slider', element);
+      console.log("jai lance la commande pour changer le slider", element);
       this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
+      this.selectedItem = this.montres[element];
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
@@ -131,19 +155,19 @@ export default {
 
 }
 */
-.imgCadran  {
- width:100%;
- height:100%;
+.imgCadran {
+  width: 100%;
+  height: 100%;
 }
 
 img {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 200;
-    width:500px;
-    pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 500px;
+  pointer-events: none;
 }
 
 .alignPastilleCouleur {
