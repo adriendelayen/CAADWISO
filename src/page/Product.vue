@@ -147,12 +147,9 @@ img {
     transform: translate(-50%, -50%);
     z-index: 200;
     width:500px;
+    pointer-events:none;
 }
-.swiper-button-prev, .swiper-rtl .swiper-button-next {
-    left: 10px;
-    right: auto;
-    z-index: 300;
-}
+
 .alignPastilleCouleur {
   display: flex;
   justify-content: space-evenly;
