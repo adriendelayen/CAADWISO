@@ -170,13 +170,6 @@ export default {
 /*
 .grid {
   display: flex;
-  justify-content: space-evenly;
-  width: 80%;
-  margin: 50px auto;
-
-}
-*/
-.imgCadran  {
  width:100%;
  height:100%;
 }
