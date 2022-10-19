@@ -5,6 +5,7 @@
       <div class="positionSwiper">
         <swiper
           ref="mySwiper"
+          @slideChange="onSlide"
           :navigation="true"
           :thumbs="{ swiper: thumbsSwiper }"
           :modules="modules"
@@ -32,8 +33,8 @@
             },
           }"
         >
-          <swiper-slide v-for="m in montres" :key="m.id">
-            <Montre class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
+          <swiper-slide  v-for="m in montres" :key="m.id" >
+            <Montre  class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
           </swiper-slide>
 
           <span class="imgCadran">
@@ -122,14 +123,15 @@ export default {
       selected: undefined,
       montres: require("../data/montreData.json"),
       selectedItem: undefined,
-    };
+
+  }
   },
   setup() {
     const onSwiper = (swiper) => {
       console.log(swiper);
     };
     const onSlideChange = () => {
-      console.log("slide change");
+      console.log("slide change.........................................");
     };
 
     return {
@@ -142,6 +144,7 @@ export default {
     setThumbsSwiper(element) {
       console.log("jai lance la commande pour changer le slider", element);
       this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
+
       this.selectedItem = this.montres[element];
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
@@ -149,7 +152,16 @@ export default {
     AddMOntre(montre) {
       this.montres.push(montre);
     },
+    onSlide(){
+
+      console.log("totoooooooooooooooooooooooooo");
+    }
   },
+  mounted (){
+    this.selectedItem = this.montres[0];
+    console.log(this.montres);
+  }
+
 };
 </script>
 
@@ -163,8 +175,6 @@ export default {
 
 }
 */
-
-
 .imgCadran  {
  width:100%;
  height:100%;
@@ -176,8 +186,11 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 200;
-  width: 500px;
+  max-width: 95vw;
+  width: 400px;
+  height:auto;
   pointer-events: none;
+  
 }
 
 .alignPastilleCouleur {

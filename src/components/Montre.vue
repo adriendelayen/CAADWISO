@@ -11,7 +11,7 @@
         <img src="/image/cadran.png" alt="cadran-montre">
     </div>
       -->
-      <img :src="montre.image" alt="photo-bracelet" />
+      <img :src="montre.image"  alt="photo-bracelet" />
     </div>
 
     <div class="pastilleCouleurs"></div>
@@ -26,7 +26,7 @@ export default {
   props: {
     montre: Object,
   },
-  
+
   methods: {
     addMontre: () => {
       this.$emit("push", this.montre);
@@ -46,4 +46,11 @@ export default {
 }
 */
 
+
+img{
+  max-width:95vw;
+  height:auto;
+  width:400px;
+
+}
 </style>
