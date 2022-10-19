@@ -1,8 +1,13 @@
-# daawiso
+# CAADWISO
 
 ## Project setup
 ```
 npm install
+```
+
+## Swiper setup
+```
+npm swiper
 ```
 
 ### Compiles and hot-reloads for development
