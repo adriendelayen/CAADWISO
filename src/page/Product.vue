@@ -78,10 +78,18 @@
       </swiper>
     </div>
 
-    <h2 v-if="this.selectedItem">
-      Caractèristique du bracelet:
-      <span :style="{ color: this.selectedItem.pasti }">Yellow Pastel</span>
-    </h2>
+    <div class="selectItem" v-if="this.selectedItem">
+      <h2 >
+        Caractèristique du votre montre:
+        <span :style="{ color: this.selectedItem.pasti }">{{
+          selectedItem.couleur
+        }}</span>
+        <p>Longeur du bracelet : {{ selectedItem.tailleBracelet }}</p>
+        <p>Matière du bracelet : {{ selectedItem.matiere }}</p>
+        <p>Taille du cadran du bracelet : {{ selectedItem.tailleCadran }}</p>
+        <p>Prix de votre montre : {{ selectedItem.prix }}</p>
+      </h2>
+    </div>
   </main>
 </template>
 
@@ -211,5 +219,20 @@ ul {
 h1,
 h2 {
   margin-left: 45px;
+}
+
+.selectItem {
+  border: 0.2rem solid black;
+  width:35%;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: center;
+  margin:50px 0 45px 20px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.75);
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 </style>
