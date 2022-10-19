@@ -120,9 +120,7 @@
                     min-height: 73vh;
                     flex-direction: row;
                 }
-                .typer{
-                    width: 65%;
-                }
+                
                 
             }
     
