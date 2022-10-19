@@ -155,7 +155,7 @@ export default {
     },
     onSlide(montre){
       this.displayElement = this.montres[montre];
-      console.log(this.displayElement ,"totoooooooooooooooooooooooooo");
+      console.log(this.displayElement ,"totooooooooooooooooooooo");
     }
   },
   mounted (){
