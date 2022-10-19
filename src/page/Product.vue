@@ -2,7 +2,7 @@
   <main>
     <div>
       <h1 class="titreProduit">Produit</h1>
-      <div class="positionSwiper">
+      <div class="positionSwiper" >
         <swiper
           ref="mySwiper"
           @slideChange="onSlide"
@@ -33,7 +33,7 @@
             },
           }"
         >
-          <swiper-slide  v-for="m in montres" :key="m.id" >
+          <swiper-slide  v-for="m in montres" :key="m.id">
             <Montre  class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
           </swiper-slide>
 
@@ -119,6 +119,7 @@ export default {
   // },
   data() {
     return {
+      displayElement: true,
       selectedPastillas: undefined,
       selected: undefined,
       montres: require("../data/montreData.json"),
@@ -152,9 +153,9 @@ export default {
     AddMOntre(montre) {
       this.montres.push(montre);
     },
-    onSlide(){
-
-      console.log("totoooooooooooooooooooooooooo");
+    onSlide(montre){
+      this.displayElement = this.montres[montre];
+      console.log(this.displayElement ,"totoooooooooooooooooooooooooo");
     }
   },
   mounted (){
@@ -190,7 +191,7 @@ img {
   width: 400px;
   height:auto;
   pointer-events: none;
-  
+
 }
 
 .alignPastilleCouleur {
