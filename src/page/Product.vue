@@ -3,8 +3,14 @@
     <div>
       <h1 class="titreProduit">Produit</h1>
       <div class="positionSwiper">
-        <swiper ref="mySwiper" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules" class="mySwiper"
-           :loop="true" :breakpoints="{
+        <swiper
+          ref="mySwiper"
+          :navigation="true"
+          :thumbs="{ swiper: thumbsSwiper }"
+          :modules="modules"
+          class="mySwiper"
+          :loop="true"
+          :breakpoints="{
             '320': {
               slidesPerView: 1,
             },
@@ -24,7 +30,8 @@
             '1200': {
               slidesPerView: 1,
             },
-          }">
+          }"
+        >
           <swiper-slide v-for="m in montres" :key="m.id">
             <Montre class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
           </swiper-slide>
@@ -49,15 +56,40 @@
       -->
     </div>
     <div>
-      <swiper :spaceBetween="3" :slidesPerView="7" :freeMode="true"
-        :watchSlidesProgress="true" :modules="modules" class="swiperPastille">
-        <swiper-slide class="alignPastilleCouleur" v-for="(element , position) in montres" @click="setThumbsSwiper(position)" :key="element.id">
-          <div class="pastillas" :style="{ backgroundColor: element.pasti }"></div>
+      <swiper
+        :spaceBetween="3"
+        :slidesPerView="7"
+        :freeMode="true"
+        :watchSlidesProgress="true"
+        :modules="modules"
+        class="swiperPastille"
+      >
+        <swiper-slide
+          class="alignPastilleCouleur"
+          v-for="(element, position) in montres"
+          @click="setThumbsSwiper(position)"
+          :key="element.id"
+        >
+          <div
+            class="pastillas"
+            :style="{ backgroundColor: element.pasti }"
+          ></div>
         </swiper-slide>
       </swiper>
     </div>
 
-    <h2>Caractèristique du bracelet: Yellow Pastel</h2>
+    <div class="selectItem" v-if="this.selectedItem">
+      <h2 >
+        Caractèristique du votre montre:
+        <span :style="{ color: this.selectedItem.pasti }">{{
+          selectedItem.couleur
+        }}</span>
+        <p>Longeur du bracelet : {{ selectedItem.tailleBracelet }}</p>
+        <p>Matière du bracelet : {{ selectedItem.matiere }}</p>
+        <p>Taille du cadran du bracelet : {{ selectedItem.tailleCadran }}</p>
+        <p>Prix de votre montre : {{ selectedItem.prix }}</p>
+      </h2>
+    </div>
   </main>
 </template>
 
@@ -77,7 +109,6 @@ import "swiper/css/free-mode";
 import SwiperCore from "swiper/core";
 SwiperCore.use([Navigation, Thumbs]);
 
-
 export default {
   name: "ProductComponent",
   components: { Montre, Swiper, SwiperSlide },
@@ -85,11 +116,12 @@ export default {
   //   window.$s = this.$refs.mySwiper
   //   console.log ('on mounted > !' , this.$refs.mySwiper.swiper)
   // },
-  data () {
+  data() {
     return {
       selectedPastillas: undefined,
       selected: undefined,
-      montres:  require('../data/montreData.json'),
+      montres: require("../data/montreData.json"),
+      selectedItem: undefined,
     };
   },
   setup() {
@@ -108,13 +140,9 @@ export default {
   },
   methods: {
     setThumbsSwiper(element) {
-      console.log('jai lance la commande pour changer le slider', element);
+      console.log("jai lance la commande pour changer le slider", element);
       this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
-      if(this.breakpoints.slidesPerView > 1) {
-        element+1
-        console.log('if breakpoint');
-      }
-
+      this.selectedItem = this.montres[element];
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
@@ -135,6 +163,8 @@ export default {
 
 }
 */
+
+
 .imgCadran  {
  width:100%;
  height:100%;
@@ -142,12 +172,12 @@ export default {
 
 img {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 200;
-    width:500px;
-    pointer-events:none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 500px;
+  pointer-events: none;
 }
 
 .alignPastilleCouleur {
@@ -191,6 +221,21 @@ ul {
 h1,
 h2 {
   margin-left: 45px;
-  color:white;
+
+}
+
+.selectItem {
+  border: 0.2rem solid black;
+  width:35%;
+  box-sizing: border-box;
+  display:flex;
+  justify-content: center;
+  margin:50px 0 45px 20px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.75);
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 </style>

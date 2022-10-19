@@ -1,7 +1,7 @@
 <template>
 
     <main>
-        <div >
+        <div class="header">
             <h1 class="typer">La perfection en main.</h1>
             <p>Passionné de sensations fortes ? La CAADWISO est faite pour vous, 48 heures d'autonomie et résistante aux chocs, elle vous accompagnera dans toutes vos aventures, alors ne perdez pas une minute :
             </p>
@@ -19,50 +19,61 @@
         
         <script>
             export default {
-                name: 'HomeComponent'
+                name: 'HomeComponent',
+
             }
         
         </script>
+
         
         <style scoped>
 
 
 
             .typer{
-                border-right: 2px solid var(--blue);
-                animation: typer-animation 2s steps(22),blink-animation .5s step-end infinite alternate;
-                width: 90%;
+                font-family: monospace;
+                border-right: 2px solid transparent;
+                animation: typer-animation 3s steps(22),blink-animation .5s step-end 8 alternate;
+                width: 22ch;
                 white-space: nowrap;
                 overflow: hidden;
+                max-width: 100%;
+                font-weight: 400;
+                padding: 0;
+                
+                
+                
+                
             }
             @keyframes typer-animation{
                 from{
+                    
                     width:0;
                 }
             }
             @keyframes blink-animation{
                 50%{
-                    border-color: transparent
-                }}
+                    border-color: var(--blue)
+                }
+            
+            }
 
 
-            main{
-                min-height: fit-content;
+            .header{
+                margin: 15px auto 45px ;
+                width: 90%;
+
             }
-            div{
-                margin-left: 20px;
-                padding-right: 50px;
-            }
+            
             h1{
                 text-align: left;
                 padding: 5px;
-                margin-left: 5px;
-                margin-right: 15px;
+                
             }
             p{
                 text-align: left;
                 padding: 5px;
-                margin-left: 5px;
+                
             }
             main {
                 display: flex;
@@ -80,13 +91,14 @@
                 width: 50%;
             }
             button {
-                border-radius: 10px;
+                border-radius: 5px;
                 border: none;
                 background-color: var(--blue);
-                height: 30px;
-                width: 160px;
+                height: 2.4em;
+                padding: 0 15px;
                 justify-content: center;
                 box-shadow: var(--shadow);
+                
             }
             a:link, a:visited{
                 color: var(--white);
