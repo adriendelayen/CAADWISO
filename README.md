@@ -1,8 +1,13 @@
-# daawiso
+# CAADWISO
 
 ## Project setup
 ```
 npm install
+```
+
+### Load the project
+```
+npm run start
 ```
 
 ### Compiles and hot-reloads for development
