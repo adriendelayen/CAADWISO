@@ -5,9 +5,9 @@
 npm install
 ```
 
-## Swiper setup
+### Load the project
 ```
-npm swiper
+npm run start
 ```
 
 ### Compiles and hot-reloads for development
