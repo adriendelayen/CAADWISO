@@ -38,7 +38,7 @@
           </swiper-slide>
 
           <span class="imgCadran">
-            <img src="/image/cadran.png" />
+            <img src="/image/cadran.png" alt=""/>
           </span>
         </swiper>
       </div>

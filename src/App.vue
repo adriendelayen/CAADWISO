@@ -44,6 +44,10 @@ body{
     background-color: var(--white);
     margin: 0;
 }
+main{
+  margin-left: 15px;
+  margin-right: 15px;
+}
 h1{
   color:var(--blue);
 }
