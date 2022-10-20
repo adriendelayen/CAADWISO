@@ -167,7 +167,7 @@ export default {
 </script>
 
 <style scoped>
-/*
+
 .grid {
   display: flex;
  width:100%;
