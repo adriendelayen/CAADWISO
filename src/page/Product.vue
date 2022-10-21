@@ -79,7 +79,7 @@
       </swiper>
     </div>
 
-    <div class="selectItem" v-if="this.selectedItem">
+    <div class="selectItem" v-if="this.selectedItem && this.displayElement ">
       <h2 >
         Caractèristique du votre montre:
         <span :style="{ color: this.selectedItem.pasti }">{{
@@ -153,9 +153,11 @@ export default {
     AddMOntre(montre) {
       this.montres.push(montre);
     },
-    onSlide(montre){
-      this.displayElement = this.montres[montre];
-      console.log(this.displayElement ,"totooooooooooooooooooooo");
+    onSlide(swiper){
+      console.log(swiper.activeIndex ,"totooooooooooooooooooooo");
+      //this.displayElement = swiper.activeIndex;
+      this.selectedItem = this.montres[swiper.activeIndex-1];
+
     }
   },
   mounted (){
