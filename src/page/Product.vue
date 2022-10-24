@@ -38,7 +38,7 @@
           </swiper-slide>
 
           <span class="imgCadran">
-            <img src="/image/cadran.png" />
+            <img src="/image/cadran.png" alt=""/>
           </span>
         </swiper>
       </div>
@@ -91,6 +91,7 @@
         <p>Prix de votre montre : {{ selectedItem.prix }}</p>
       </h2>
     </div>
+      <button class="addMontre" @AddMOntre="AddMOntre">Passer commande</button>
   </main>
 </template>
 
@@ -120,6 +121,7 @@ export default {
   data() {
     return {
       displayElement: true,
+      displayElement: true,
       selectedPastillas: undefined,
       selected: undefined,
       montres: require("../data/montreData.json"),
@@ -132,7 +134,7 @@ export default {
       console.log(swiper);
     };
     const onSlideChange = () => {
-      console.log("slide change.........................................");
+      console.log("slide change..................................................................................");
     };
 
     return {
@@ -146,16 +148,20 @@ export default {
       console.log("jai lance la commande pour changer le slider", element);
       this.$refs.mySwiper.$el.swiper.slideToLoop(element, 2000);
 
+
       this.selectedItem = this.montres[element];
       //this.thumbsSwiper = swiper;
       //console.log(this.thumbsSwiper);
     },
     AddMOntre(montre) {
       this.montres.push(montre);
+      console.log(montre, "addMontre.........")
     },
-    onSlide(montre){
-      this.displayElement = this.montres[montre];
-      console.log(this.displayElement ,"totooooooooooooooooooooo");
+    onSlide(swiper){
+      console.log(swiper.activeIndex ,"totooooooooooooooooooooo");
+      //this.displayElement = swiper.activeIndex;
+      this.selectedItem = this.montres[swiper.activeIndex-1];
+
     }
   },
   mounted (){
@@ -245,4 +251,21 @@ h2 {
   margin-right: auto;
 
 }
+
+.addMontre {
+  border-radius: 5px;
+  border: none;
+  background-color: var(--blue);
+  height: 2.4em;
+  padding: 0 15px;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  margin-bottom:20px;
+  color:white;
+  font-size: 11px;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Oxygen', sans-serif;
+
+}
 </style>
+
