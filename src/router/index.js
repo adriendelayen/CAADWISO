@@ -9,7 +9,7 @@ import Cgv from "@/page/Cgv";
 
 const router = createRouter({
     routes: [
-        {path: '/home', name: 'home', component: Home},
+        {path: '/', name: 'home', component: Home},
         {path: '/product', name: 'product', component: Product},
         {path: '/contact',name: 'contact', component: Contact},
         {path: '/basket',name: 'basket', component: Basket},
