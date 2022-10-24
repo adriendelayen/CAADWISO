@@ -120,8 +120,6 @@ export default {
   // },
   data() {
     return {
-      displayElement: true,
-      displayElement: true,
       selectedPastillas: undefined,
       selected: undefined,
       montres: require("../data/montreData.json"),
