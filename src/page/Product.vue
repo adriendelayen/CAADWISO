@@ -34,7 +34,7 @@
           }"
         >
           <swiper-slide  v-for="m in montres" :key="m.id">
-            <Montre  class="swiper-slide" :montre="m" @AddMOntre="AddMOntre" />
+            <Montre  class="swiper-slide" :montre="m" />
           </swiper-slide>
 
           <span class="imgCadran">
@@ -79,7 +79,7 @@
       </swiper>
     </div>
 
-    <div class="selectItem" v-if="this.selectedItem && this.displayElement ">
+    <div class="selectItem" v-if="this.selectedItem">
       <h2 >
         Caractèristique du votre montre:
         <span :style="{ color: this.selectedItem.pasti }">{{
@@ -91,6 +91,7 @@
         <p>Prix de votre montre : {{ selectedItem.prix }}</p>
       </h2>
     </div>
+      <button class="addMontre" @AddMOntre="AddMOntre">Passer commande</button>
   </main>
 </template>
 
@@ -152,6 +153,7 @@ export default {
     },
     AddMOntre(montre) {
       this.montres.push(montre);
+      console.log(montre, "addMontre.........")
     },
     onSlide(swiper){
       console.log(swiper.activeIndex ,"totooooooooooooooooooooo");
@@ -247,4 +249,21 @@ h2 {
   margin-right: auto;
 
 }
+
+.addMontre {
+  border-radius: 5px;
+  border: none;
+  background-color: var(--blue);
+  height: 2.4em;
+  padding: 0 15px;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  margin-bottom:20px;
+  color:white;
+  font-size: 11px;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Oxygen', sans-serif;
+
+}
 </style>
+
